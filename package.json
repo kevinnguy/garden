@@ -6,8 +6,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "down": "knex-migrate down",
+    "generate": "knex-migrate generate",
     "knex": "knex",
-    "migrate": "knex-migrate"
+    "migrate": "knex-migrate",
+    "migrate-latest": "knex-migrate up",
+    "migrate-reset": "knex-migrate down 0",
+    "up": "knex-migrate up --step"
   },
   "dependencies": {
     "knex": "^0.14.4",
