@@ -1,51 +1,38 @@
-// Update with your config settings.
+const { knexSnakeCaseMappers } = require('objection');
+
+const config = {
+  client: 'postgresql',
+  pool: {
+    min: 2,
+    max: 10
+  },
+  migrations: {
+    tableName: 'knex_migrations'
+  },
+  ...knexSnakeCaseMappers(),
+};
 
 module.exports = {
-
   development: {
-    client: 'postgresql',
+    ...config,
     connection: {
       database: 'garden',
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
-
   staging: {
-    client: 'postgresql',
+    ...config,
     connection: {
       database: 'my_db',
       user:     'username',
       password: 'password'
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
-
   production: {
-    client: 'postgresql',
+    ...config,
     connection: {
       database: 'my_db',
       user:     'username',
       password: 'password'
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
+  },
 };
