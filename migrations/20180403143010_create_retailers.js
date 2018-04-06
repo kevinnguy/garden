@@ -3,7 +3,7 @@ exports.up = async function(knex) {
     t.uuid('id').unique().primary().notNullable().defaultTo(knex.raw('gen_random_uuid()'));
     t.inherits('url');
     t.string('name', 500).notNullable();
-    t.text('logoURL').notNullable();
+    t.text('logo_url').notNullable();
   });
 };
 
