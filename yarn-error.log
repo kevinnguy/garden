@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js knex seed:run
+  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js seed
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevin/Library/Android/sdk/tools:/Users/kevin/Library/Android/sdk/platform-tools:/usr/local/bin
@@ -28,6 +28,7 @@ npm manifest:
       "migrate": "knex-migrate",
       "migrate-latest": "knex-migrate up",
       "migrate-reset": "knex-migrate down 0",
+      "seed": "knex seed:run",
       "up": "knex-migrate up --step"
     },
     "dependencies": {

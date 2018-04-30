@@ -4,7 +4,7 @@ const objection = require('objection');
 
 const models = require('./models');
 
-const knex = Knex(knexfile);
+const knex = Knex(knexfile.development);
 objection.Model.knex(knex);
 
 module.exports = {
