@@ -1,4 +1,4 @@
-const table = 'retailer_category_urls';
+const table = 'retailer_category_links';
 
 const dressesCategories = [
   {
