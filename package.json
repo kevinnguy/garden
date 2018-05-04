@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "main": "index.js",
   "author": "Kevin Nguy",
-  "license": "MIT",
   "private": true,
   "scripts": {
     "down": "knex-migrate down",

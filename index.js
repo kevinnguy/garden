@@ -8,6 +8,7 @@ const knex = Knex(knexfile.development);
 objection.Model.knex(knex);
 
 module.exports = {
+  knex,
   models,
   objection,
-}
+};
