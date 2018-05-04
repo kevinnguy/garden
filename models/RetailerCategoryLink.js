@@ -8,7 +8,7 @@ class RetailerCategoryLink extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      // required: ['title', 'price', 'retailerURLPath', 'retailerId'],
+      // required: ['title', 'price', 'retailerUrlPath', 'retailerId'],
 
       properties: {
         id: { type: 'string', nullable: false, primary: true },

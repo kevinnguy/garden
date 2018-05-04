@@ -8,7 +8,7 @@ class Product extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      // required: ['title', 'price', 'retailerURLPath', 'retailerId'],
+      // required: ['title', 'price', 'retailerUrlPath', 'retailerId'],
 
       properties: {
         id: { type: 'string', nullable: false, primary: true },
@@ -17,7 +17,7 @@ class Product extends Model {
         promo: { type: 'string' },
         price: { type: 'number', nullable: false, minimum: 0 },
         priceOld: { type: 'number', minimum: 0 },
-        retailerURLPath: { type: 'string', nullable: false },
+        retailerUrlPath: { type: 'string', nullable: false },
         retailerId: { type: 'string', nullable: false },
         expired: { type: 'boolean' },
         categoryId: { type: 'string', nullable: false },
@@ -25,16 +25,26 @@ class Product extends Model {
     };
   };
 
-  // static relationMappings = {
-  //   retailer: {
-  //     relation: Model.BelongsToOneRelation,
-  //     modelClass: __dirname + '/Retailer',
-  //     join: {
-  //       from: 'products.retailerId',
-  //       to: 'retailers.id',
-  //     },
-  //   },
-  // };
+  static get relationMappings() {
+    return {
+      retailer: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: __dirname + '/Retailer',
+        join: {
+          from: 'products.retailerId',
+          to: 'retailers.id',
+        },
+      },
+      images: {
+        relation: Model.HasManyRelation,
+        modelClass: __dirname + '/ProductImage',
+        join: {
+          from: 'products.id',
+          to: 'product_images.productId',
+        },
+      },
+    };
+  }
 }
 
 module.exports = Product;
