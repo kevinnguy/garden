@@ -19,11 +19,22 @@ class Product extends Model {
         priceOld: { type: 'number', minimum: 0 },
         retailerURLPath: { type: 'string', nullable: false },
         retailerId: { type: 'string', nullable: false },
-        boolean: { type: 'boolean', nullable: false },
-        gender: { type: { enum: ['female', 'male', 'all', 'other'] } },
+        expired: { type: 'boolean' },
+        categoryId: { type: 'string', nullable: false },
       },
     };
-  }
+  };
+
+  // static relationMappings = {
+  //   retailer: {
+  //     relation: Model.BelongsToOneRelation,
+  //     modelClass: __dirname + '/Retailer',
+  //     join: {
+  //       from: 'products.retailerId',
+  //       to: 'retailers.id',
+  //     },
+  //   },
+  // };
 }
 
 module.exports = Product;
