@@ -15,6 +15,8 @@ class RetailerCategoryLink extends Model {
         hostname: { type: 'string', nullable: false, minLength: 1, maxLength: 500 },
         path: { type: 'string '},
         scheme: { type: { enum: ['http', 'https'] } },
+        categoryId: { type: 'string', nullable: false },
+        retailerId: { type: 'string', nullable: false },
       },
     };
   }
