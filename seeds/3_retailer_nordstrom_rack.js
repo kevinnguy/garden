@@ -1,4 +1,4 @@
-const retailer = 'Nordstrom Rack';
+const name = 'Nordstrom Rack';
 const table = 'retailer_category_links';
 
 const dressesCategories = [
@@ -20,7 +20,7 @@ exports.seed = async function(knex) {
   await knex(table).del();
 
   const retailer = await knex('retailers').where({
-    name: retailer,
+    name,
   }).first();
 
   const promises = dressesCategories.map(async obj => {

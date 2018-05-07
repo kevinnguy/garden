@@ -2,7 +2,7 @@ Arguments:
   /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js seed
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevin/Library/Android/sdk/tools:/Users/kevin/Library/Android/sdk/platform-tools:/usr/local/bin:/Users/kevin/Library/Android/sdk/tools:/Users/kevin/Library/Android/sdk/platform-tools:/usr/local/bin
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevin/Library/Android/sdk/tools:/Users/kevin/Library/Android/sdk/platform-tools:/usr/local/bin
 
 Yarn version: 
   1.5.1
@@ -19,7 +19,6 @@ npm manifest:
     "version": "0.0.1",
     "main": "index.js",
     "author": "Kevin Nguy",
-    "license": "MIT",
     "private": true,
     "scripts": {
       "down": "knex-migrate down",
