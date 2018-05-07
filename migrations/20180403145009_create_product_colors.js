@@ -5,6 +5,8 @@ exports.up = async function(knex) {
     t.string('name');
     t.boolean('expired').defaultTo(false).notNullable();
     t.uuid('product_id').notNullable().references('products.id').onDelete('CASCADE');
+    t.timestamps(true, true);
+    t.boolean('deleted').defaultTo(false).notNullable();
   });
 };
 
