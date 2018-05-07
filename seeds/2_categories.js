@@ -15,10 +15,7 @@ const dressesCategories = [
   'formal',
 ];
 
-
-
 exports.seed = async function(knex) {
-  await knex(table).del();
   await knex(table).insert(womenJSON);
 
   const womenCategory = await knex(table).where({

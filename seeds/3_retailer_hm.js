@@ -25,8 +25,6 @@ const dressesCategories = [
 ];
 
 exports.seed = async function(knex) {
-  await knex(table).del();
-
   const retailer = await knex('retailers').where({
     name,
   }).first();
