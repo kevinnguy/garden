@@ -1,17 +1,26 @@
+const retailer = 'H&M';
 const table = 'retailer_category_links';
 
 const dressesCategories = [
   {
     name: 'casual',
-    path: 'shop/Women/Clothing/Dresses/Casual',
+    path: 'products/ladies/dresses/shortdresses',
+  },
+  {
+    name: 'casual',
+    path: 'products/ladies/dresses/mididresses',
   },
   {
     name: 'cocktail & party',
-    path: 'shop/Women/Clothing/Dresses/Cocktail%20&%20Party',
+    path: 'products/ladies/dresses/partydresses',
   },
   {
-    name: 'formal',
-    path: 'shop/Women/Clothing/Dresses/Formal',
+    name: 'cocktail & party',
+    path: 'products/ladies/dresses/maxidresses',
+  },
+  {
+    name: 'cocktail & party',
+    path: 'products/ladies/dresses/cocktail-dresses',
   },
 ];
 
@@ -19,7 +28,7 @@ exports.seed = async function(knex) {
   await knex(table).del();
 
   const retailer = await knex('retailers').where({
-    name: 'Nordstrom Rack',
+    name: retailer,
   }).first();
 
   const promises = dressesCategories.map(async obj => {
