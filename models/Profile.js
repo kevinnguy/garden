@@ -5,6 +5,14 @@ class Profile extends Model {
     return 'profiles';
   }
 
+  $formatJson(data) {
+    let json = super.$formatJson(data);
+
+    delete json.password;
+
+    return json;
+  }
+
   static get virtualAttributes() {
     return ['fullName'];
   }
