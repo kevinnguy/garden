@@ -16,9 +16,12 @@
   },
   "dependencies": {
     "knex": "^0.14.4",
-    "knex-migrate": "^1.5.4",
     "objection": "^1.1.1",
     "pg": "^7.4.1",
     "urijs": "^1.19.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "knex-migrate": "^1.5.5"
   }
 }
