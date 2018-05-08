@@ -1,8 +1,22 @@
 const { Model } = require('objection');
+const URI = require('urijs');
 
-class RetailerCategoryLink extends Model {
+class ProductImage extends Model {
   static get tableName() {
     return 'product_images';
+  }
+
+  static get virtualAttributes() {
+    return ['url'];
+  }
+
+  url() {
+    const { hostname, path, scheme } = this;
+    return URI({
+      hostname,
+      path,
+      scheme,
+    }).toString();
   }
 
   static get jsonSchema() {
@@ -35,4 +49,4 @@ class RetailerCategoryLink extends Model {
   }
 }
 
-module.exports = RetailerCategoryLink;
+module.exports = ProductImage;
