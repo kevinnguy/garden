@@ -1,4 +1,5 @@
 module.exports = {
+  Category: require('./Category'),
   Product: require('./Product'),
   ProductImage: require('./ProductImage'),
   Profile: require('./Profile'),
