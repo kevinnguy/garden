@@ -1,10 +1,11 @@
 const faker = require('faker');
+const argon2 = require('argon2');
 
 const table = 'profiles';
 let json = [
   {
     email: 'kevnguy@gmail.com',
-    password: 'password',
+    password: '$argon2i$v=19$m=4096,t=3,p=1$jrK2RMmE/YxJHt+Kn630oQ$3mSeePcHsysPfLOYPLKqXVi4o8ZUNBFDHCdhJ9OspVg',
     firstName: 'Kevin',
     lastName: 'Nguy',
     username: 'kevin',
@@ -18,22 +19,26 @@ let json = [
 ];
 
 faker.seed(2018); // generate fake data with a seed to reproduce consistent data
-for (let i = 0; i < 19; i++) {
-  json.push({
-    email: faker.internet.email(),
-    password: faker.internet.password(),
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    username: faker.internet.userName(),
-    phone: faker.phone.phoneNumber('###-###-####'),
-    gender: faker.random.boolean() ? 'female' : 'male',
-    imageUrl: faker.image.avatar(),
-    active: true,
-    invited: faker.random.boolean(),
-    verified: true,
-  })
-}
 
 exports.seed = async function(knex) {
+  for (let i = 0; i < 19; i++) {
+    const firstName = faker.name.firstName();
+    const password = await argon2.hash(firstName);
+
+    json.push({
+      email: faker.internet.email(),
+      password,
+      firstName,
+      lastName: faker.name.lastName(),
+      username: faker.internet.userName(),
+      phone: faker.phone.phoneNumber('###-###-####'),
+      gender: faker.random.boolean() ? 'female' : 'male',
+      imageUrl: faker.image.avatar(),
+      active: true,
+      invited: faker.random.boolean(),
+      verified: true,
+    })
+  }
+
   await knex(table).insert(json);
 };

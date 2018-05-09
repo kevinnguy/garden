@@ -20,6 +20,19 @@ class Retailer extends Model {
       },
     };
   }
+
+  static get relationMappings() {
+    return {
+      // links: {
+      //   relation: Model.HasManyRelation,
+      //   modelClass: __dirname + '/ProductImage',
+      //   join: {
+      //     from: 'products.id',
+      //     to: 'product_images.productId',
+      //   },
+      // },
+    }
+  }
 }
 
 module.exports = Retailer;
