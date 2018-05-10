@@ -1,4 +1,5 @@
-const { knexSnakeCaseMappers } = require('objection');
+const { objection } = require('citrus');
+const { knexSnakeCaseMappers } = objection;
 
 const config = {
   client: 'postgresql',
