@@ -3,5 +3,5 @@ exports.up = async function(knex) {
 };
 
 exports.down = async function(knex) {
-await knex.schema.renameTable('product_checkout_metadata', 'checkout_products');
+  await knex.schema.renameTable('product_checkout_metadata', 'checkout_products');
 };
