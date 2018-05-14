@@ -5,7 +5,7 @@ exports.up = async function(knex) {
 };
 
 exports.down = async function(knex) {
-  await knex.schema.table('checkouts', t => (
+  await knex.schema.table('checkouts', t => {
     t.dropColumn('checkout_at');
-  ));
+  });
 };
