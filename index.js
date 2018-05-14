@@ -6,8 +6,10 @@ const knexfile = require('./knexfile');
 const knex = Knex(knexfile.development);
 objection.Model.knex(knex);
 
+const { transaction } = objection;
+transaction.create = async () => await transaction.start(knex);
+
 module.exports = {
-  knex,
   models,
-  objection,
+  transaction,
 };
