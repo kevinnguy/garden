@@ -1,4 +1,4 @@
-exports.module = [
+module.exports = [
   'categories',
   'checkouts',
   'product_categories',
