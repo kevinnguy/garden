@@ -15,7 +15,8 @@
     "up": "knex-migrate up --step"
   },
   "dependencies": {
-    "citrus": "file:../citrus",
+    "citrus": "git+ssh://git@github.com:kevinnguy/citrus.git",
+    "dotenv": "^6.0.0",
     "knex": "^0.14.4",
     "pg": "^7.4.1"
   },
