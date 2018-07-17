@@ -1,11 +1,13 @@
+require('dotenv').config();
+
 const { objection } = require('citrus');
 const { knexSnakeCaseMappers } = objection;
 
 const config = {
   client: 'postgresql',
   pool: {
-    min: 2,
-    max: 10
+    min: process.env.GARDEN_POOL_MIN,
+    max: process.env.GARDEN_POOL_MAX,
   },
   migrations: {
     tableName: 'knex_migrations'
@@ -17,23 +19,23 @@ module.exports = {
   development: {
     ...config,
     connection: {
-      database: 'garden',
+      database: process.env.GARDEN_NAME,
     },
   },
   staging: {
     ...config,
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: process.env.GARDEN_NAME,
+      user:     process.env.GARDEN_USER,
+      password: process.env.GARDEN_PASSWORD,
     },
   },
   production: {
     ...config,
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: process.env.GARDEN_NAME,
+      user:     process.env.GARDEN_USER,
+      password: process.env.GARDEN_PASSWORD,
     },
   },
 };
